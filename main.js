@@ -1,0 +1,103 @@
+let record = [
+    {
+        lastname : "SAND",
+        firstname : "Georges",
+        matter : "Mathémathiques",
+        note : 8
+    },
+    {
+        lastname : "POINCARE",
+        firstname : "Henri",
+        matter : "Mathémathiques",
+        note : 19
+    },
+    {
+        lastname : "ZOLA",
+        firstname : "Emile",
+        matter : "Français",
+        note : 18
+    },
+]
+
+let capitalize;
+
+
+const setDisplayStudent=document.querySelector("#student-display-button"); // Récupération du bouton voir/cacher élève
+const addStudentArea = document.querySelector("#add-student-area"); // Récupération zone d'ajout d'un élève
+
+const setDisplayMatter=document.querySelector("#matter-display-button");
+const addMatterArea = document.querySelector("#add-matter-area");
+
+const setDisplayNote=document.querySelector("#note-display-button");
+const addNoteArea = document.querySelector("#add-note-area");
+
+// Afficher/cacher la zone d'ajout nouvel élève
+setDisplayStudent.addEventListener('click', () => {
+    console.log(document.querySelector("#student-display-button"));
+    if (addStudentArea.className==='hidden') { // vérification si class css "hidden" est présente
+        addStudentArea.classList.remove("hidden"); // si oui, on enlève la class "hidden"
+        setDisplayStudent.textContent = "ON" // on change le texte du bouton
+    } else {
+        addStudentArea.classList.add("hidden"); // sinon on ajoute la class "hidden"
+        setDisplayStudent.textContent = "OFF" // et on change texte du bouton
+    }
+    
+})
+
+setDisplayMatter.addEventListener('click', () => {
+    if (addMatterArea.className==='hidden') {
+        addMatterArea.classList.remove("hidden");
+        setDisplayMatter.textContent = "ON"
+    } else {
+        addMatterArea.classList.add("hidden");
+        setDisplayMatter.textContent = "OFF"
+    }
+    
+})
+
+setDisplayNote.addEventListener('click', () => {
+    console.log(document.querySelector("#student-display-button"));
+    if (addNoteArea.className==='hidden') {
+        addNoteArea.classList.remove("hidden");
+        setDisplayNote.textContent = "ON"
+    } else {
+        addNoteArea.classList.add("hidden");
+        setDisplayNote.textContent = "OFF"
+    }
+    
+})
+
+//Ajouter un nouvel élève :
+const studentBtn = document.getElementById('student-submit-btn');
+console.log(studentBtn)
+
+studentBtn.addEventListener("click", () => {
+    let lastName = document.getElementById("lastname").value.toUpperCase();
+    let firstName = document.getElementById("firstname").value;
+    capitalize = firstName.charAt(0).toUpperCase() + firstName.slice(1);
+
+    record.push({
+        lastname : lastName,
+        firstname : capitalize,
+        matter : "",
+        note: ""
+    })
+    console.table(record)
+})
+
+
+//Ajouter une matière
+const matterBtn = document.getElementById('matter-submit-btn');
+
+matterBtn.addEventListener("click", () => {
+    let matter = document.getElementById("matter").value;
+    capitalize = matter.charAt(0).toUpperCase() + matter.slice(1);
+
+    record.push({
+        lastname : "",
+        firstname : "",
+        matter : capitalize,
+        note: ""
+    })
+    console.table(record)
+})

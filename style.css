@@ -1,0 +1,57 @@
+#main-container {
+    background-color: rgb(28, 27, 27);
+    color: azure;
+    padding : 1rem 0.5rem;
+    width: 90vw;
+    margin: auto;
+    border-radius: 0.5rem;
+};
+
+#add-part {
+    display: flex;
+    
+}
+
+.set-display {
+    display: inline-block;
+    width: 30%;
+}
+
+table {
+    margin: auto;
+}
+
+tr {
+    margin: auto;
+    display: flex;
+}
+
+th {
+    margin: auto;
+    justify-content: space-around;
+}
+
+.display-2-colums {
+    display: flex;
+}
+
+.display-inline {
+    display: inline;
+    justify-content: space-between;
+}
+
+.button-hide {
+    display: inline;
+    border: solid 1px;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+#add-part h2 {
+    display: inline;
+}
+
+.hidden {
+    display: none
+}
+

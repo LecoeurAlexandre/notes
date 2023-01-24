@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css"><script src="./main.js" defer></script>
+    <title>Liste des notes</title>
+</head>
+<body>
+    <div id="main-container">
+        <h1>- Liste de Notes -</h1>
+        <hr>
+        <div id="add-part">
+            <div class="set-display">
+                <div>
+                    <h2>Ajouter un élève</h2>
+                    <div class="button-hide" id="student-display-button">OFF</div>
+                </div>
+                <hr>
+                <div class="hidden" id="add-student-area">
+                    <div>
+                        <label for="lastname">Nom : </label>
+                        <input type="text" name="lastname" id="lastname" placeholder="Martin" required>
+                    </div>
+                    <div>
+                        <label for="firstname">Prénom : </label>
+                        <input type="text" name="firststname" id="firstname" placeholder="John" required>
+                    </div>
+                    <div>
+                        <button id="student-submit-btn">Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <div class="set-display">
+                <h2>Ajouter une matière</h2>
+                <div class="button-hide" id="matter-display-button">OFF</div>
+                <hr>
+                <div class="hidden" id="add-matter-area">
+                    <label for="matter">Intitulé : </label>
+                    <input type="text" name="matter" id="matter" placeholder="Science">
+                    <button id="matter-submit-btn">Ajouter</button>
+                </div>
+            </div>
+            <div class="set-display">
+                <h2>Ajouter une note</h2>
+                <div class="button-hide" id="note-display-button">OFF</div>
+                <hr>
+                <div class="hidden" id="add-note-area">
+                    <div>
+                        <label for="student">Elève : </label>
+                        <select name="student" id="student">
+                            <option value="">--Sélectionner un élève--</option>
+                            <option value="1">Sam Sam</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="note">Note</label>
+                        <input type="text" name="note" id="note" placeholder="8">
+                    </div>
+                    <div><label for="choose-matter">Matière : </label>
+                        <select name="choose-matter" id="choose-matter">
+                            <option value="">--Sélectionner une matière--</option>
+                            <option value="math">Mathématiques</option>
+                        </select></div>
+                    <button>Ajouter</button>
+                </div>
+            </div>   
+        </div>
+        <div>
+            <h2>Sélection</h2>
+            <hr>
+            <div class="display-2-columns">
+                <div class="display-inline">
+                    <label for="choose-student">Elève : </label>
+                    <select name="choose-student" id="choose-student">
+                        <option value="">Toute la classe</option>
+                        <option value="1"></option>
+                    </select>
+                </div>
+                <div class="display-inline">
+                    <label for="choose-matter">Matières : </label>
+                    <select name="choose-matter" id="choose-matter">
+                        <option value="">Toutes mes matières</option>
+                        <option value="1"></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2>Notes</h2>
+            <hr>
+            <div class="display-table">
+                <table >
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Matière</th>
+                        <th>Note</th>
+                    </tr>
+                </table>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
