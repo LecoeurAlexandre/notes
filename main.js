@@ -1,4 +1,4 @@
-let record = [
+let records = [
     {
         lastname : "SAND",
         firstname : "Georges",
@@ -76,7 +76,7 @@ studentBtn.addEventListener("click", () => {
     let firstName = document.getElementById("firstname").value;
     capitalize = firstName.charAt(0).toUpperCase() + firstName.slice(1);
 
-    record.push({
+    records.push({
         lastname : lastName,
         firstname : capitalize,
         matter : "",
@@ -86,18 +86,38 @@ studentBtn.addEventListener("click", () => {
 })
 
 
-//Ajouter une matière
+// Ajouter une matière
 const matterBtn = document.getElementById('matter-submit-btn');
 
 matterBtn.addEventListener("click", () => {
     let matter = document.getElementById("matter").value;
     capitalize = matter.charAt(0).toUpperCase() + matter.slice(1);
 
-    record.push({
+    records.push({
         lastname : "",
         firstname : "",
         matter : capitalize,
         note: ""
     })
-    console.table(record)
+    console.table(records)
 })
+
+// Sélectionner une matière
+const selectMatter2 = document.getElementById('choose-matter2');
+selectMatter2.innerHTML =`<option value="0">Sélectionnez une matière</option>`;
+records.forEach(record => {
+    selectMatter2.innerHTML += `<option value ="${records.indexOf(record)+1}">${record.matter}</option>`;
+});
+
+const selectMatter = document.getElementById('choose-matter1');
+selectMatter.innerHTML =`<option value="0">Sélectionnez une matière</option>`;
+records.forEach(record => {
+    selectMatter.innerHTML += `<option value ="${records.indexOf(record)+1}">${record.matter}</option>`;
+});
+
+/*
+const matterSelect = () => {
+    
+    
+}
+*/
