@@ -2,22 +2,30 @@ let records = [
     {
         lastname : "SAND",
         firstname : "Georges",
-        matter : "Mathémathiques",
-        note : 8
+        matter: { 
+            Littérature: [16, 15], 
+            Mathématiques: [7],
+        }  
     },
     {
         lastname : "POINCARE",
         firstname : "Henri",
-        matter : "Mathémathiques",
-        note : 19
+        matter: { 
+            Littérature: [10, 8], 
+            Mathématiques: [18],
+        }  
     },
     {
         lastname : "ZOLA",
         firstname : "Emile",
-        matter : "Français",
-        note : 18
+        matter: { 
+            Littérature: [15], 
+            Mathématiques: [7, 10],
+        }  
     },
-]
+];
+
+let allMatters = ['Littérature', 'Mathématiques'];
 
 let capitalize;
 
@@ -79,10 +87,9 @@ studentBtn.addEventListener("click", () => {
     records.push({
         lastname : lastName,
         firstname : capitalize,
-        matter : "",
-        note: ""
+        matter : []
     })
-    console.table(record)
+    console.table(records)
 })
 
 
@@ -92,28 +99,23 @@ const matterBtn = document.getElementById('matter-submit-btn');
 matterBtn.addEventListener("click", () => {
     let matter = document.getElementById("matter").value;
     capitalize = matter.charAt(0).toUpperCase() + matter.slice(1);
-
-    records.push({
-        lastname : "",
-        firstname : "",
-        matter : capitalize,
-        note: ""
-    })
-    console.table(records)
+    allMatters.push(capitalize)
+    console.table(allMatters)
 })
 
 // Sélectionner une matière
 const selectMatter2 = document.getElementById('choose-matter2');
 selectMatter2.innerHTML =`<option value="0">Sélectionnez une matière</option>`;
-records.forEach(record => {
-    selectMatter2.innerHTML += `<option value ="${records.indexOf(record)+1}">${record.matter}</option>`;
-});
+for (var i = 0; i < allMatters.length; i++) {
+    selectMatter2.innerHTML += `<option value ="${i+1}">${allMatters[i]}</option>`;
+}
+
 
 const selectMatter = document.getElementById('choose-matter1');
 selectMatter.innerHTML =`<option value="0">Sélectionnez une matière</option>`;
-records.forEach(record => {
-    selectMatter.innerHTML += `<option value ="${records.indexOf(record)+1}">${record.matter}</option>`;
-});
+for (var i = 0; i < allMatters.length; i++) {
+    selectMatter.innerHTML += `<option value ="${i+1}">${allMatters[i]}</option>`;
+}
 
 /*
 const matterSelect = () => {
@@ -121,3 +123,15 @@ const matterSelect = () => {
     
 }
 */
+
+const allStudent = document.getElementById('student');
+allStudent.innerHTML =`<option value="0">Sélectionnez un élève</option>`;
+records.forEach(record => {
+    allStudent.innerHTML += `<option value ="${records.indexOf(record)+1}">${record.lastname} ${record.firstname}</option>`;
+});
+
+const chooseStudent = document.getElementById('choose-student');
+chooseStudent.innerHTML =`<option value="0">Tous les élèves</option>`;
+records.forEach(record => {
+    chooseStudent.innerHTML += `<option value ="${records.indexOf(record)+1}">${record.lastname} ${record.firstname}</option>`;
+});
